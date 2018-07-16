@@ -10,6 +10,17 @@ export class AuthService {
     public afAuth: AngularFireAuth
   ) { }
 
+  loginTwitter () {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.TwitterAuthProvider());
+  }
+
+  loginFacebook() {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider());
+  }
+
+  loginGoogle() {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  }
 
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
